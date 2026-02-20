@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ocean Guardian Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f4f8f9;
+  color: #1c2b33;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar {
+  background: #ffffffbf;
+  border-bottom: 1px solid #ffffffbf;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar .container {
+  width: 96%;
+  max-width: 1440px;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #1c2b33;
+  margin-right: auto;
+}
+
+.brand-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.site-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.site-subtitle {
+  font-size: 12px;
+  color: #4d6774;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+.nav-links a {
+  color: #1c2b33;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #0077b6;
+}
+
+.btn-primary {
+  background: #0077b6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.btn-primary:hover {
+  background: #005f8e;
+}
+
+.btn-secondary {
+  border: 2px solid #0077b6;
+  color: #0077b6;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background: #0077b6;
+  color: white;
+}
+
+.btn-tertiary {
+  background: #0077b6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-block;
+  align-items: center;
+}
+
+.btn-tertiary:hover {
+  background: #005f8e;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url('media/5.jpg') center/cover no-repeat;
+  color: white;
+  min-height: calc(100vh - 80px);
+  padding: 120px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+/* Section */
+.section {
+  padding: 80px 0;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 32px;
+}
+
+.about-layout {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.about-text {
+  flex: 1 1 52%;
+}
+
+.about-text p {
+  max-width: 620px;
+}
+
+.about-video-frame {
+  flex: 1 1 48%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.about-video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 18px;
+}
+
+.view-details-link {
+  font-size: 14px;
+  align-items: center;
+  color: #797878;
+  font-weight: 500;
+}
+
+.view-details-link:hover {
+  text-decoration: underline;
+}
+
+/* Metrics */
+.metrics {
+  background: #e9f5f9;
+}
+
+.metric-box {
+  text-align: center;
+}
+
+.metric-box h3 {
+  font-size: 36px;
+  color: #0077b6;
+}
+
+/* Footer */
+.footer {
+  background: #1c2b33;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+@media (max-width: 900px) {
+  .navbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .about-layout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="container navbar-inner">
+    <div class="navbar-brand">
+      <div class="brand-main">
+        <img src="media/7.png" alt="Ocean Guardian Foundation logo" class="brand-logo">
+        <div class="brand-text">
+          <span class="site-title">Ocean Guardian Foundation</span>
+          <span class="site-subtitle">Powered by oceanpick</span>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#about-us">about us</a>
+      <a href="#ongoing-projects">on-going projects</a>
+      <a href="#projects-we-did">projects we did</a>
+      <a href="#impact">impact</a>
+      <a href="#connect-with-us">connect with us</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Partner With Us to Protect Coastal & Marine Ecosystems</h1>
+    <p>
+      Ocean Guardian Foundation drives measurable environmental and social impact
+      through collaborative conservation initiatives.
+    </p>
+
+    <a href="https://www.oceanpick.com/contact-us/" class="btn-primary">
+      Partner With Us
+    </a>
+
+    <a href="#" class="btn-secondary">
+      Support Us
+    </a>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section" id="about-us">
+  <div class="container">
+    <h2>About Our Mission</h2>
+    <div class="about-layout">
+      <div class="about-text">
+        <p>
+          We work alongside communities, corporations, and global partners to deliver
+          sustainable marine conservation programs aligned with climate resilience
+          and social wellbeing. Ocean Guardian Foundation strives to create impactful 
+          collaborations focused on non-profit CSR & environmental conservation. 
+          Together, we can enhance initiatives that yield positive outcomes for our ecosystems and communities.
+        </p>
+      </div>
+      <div class="about-video-frame">
+        <video
+          id="about-video-player"
+          class="about-video"
+          src="media/1220(2)-1.mp4"
+          controls
+          autoplay
+          muted
+          playsinline
+          preload="metadata"
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOCUS AREAS -->
+<section class="section" id="ongoing-projects">
+  <div class="container">
+    <h2 id="projects-we-did">Our Focus Areas</h2>
+
+    <div class="grid grid-4">
+
+      <div class="card">
+        <img src="media/1.png" alt="Placeholder">
+        <h3>Community & Social Development</h3>
+        <p>Empowering coastal communities through sustainable livelihoods and education initiatives.</p>
+        <div class="card-actions">
+          <a href="https://www.oceanpick.com/sustainability/" class="view-details-link">view more details</a>
+          <a href="https://www.oceanpick.com/contact-us/" class="btn-tertiary">
+            Collaborate
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="media/2.png" alt="Placeholder">
+        <h3>Coastal & Marine Conservation</h3>
+        <p>Protecting biodiversity and restoring fragile marine ecosystems.</p>
+        <div class="card-actions">
+          <a href="https://www.oceanpick.com/sustainability/" class="view-details-link">view more details</a>
+          <a href="https://www.oceanpick.com/contact-us/" class="btn-tertiary">
+            Collaborate
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="media/3.png" alt="Placeholder">
+        <h3>Blue Carbon & Climate Change</h3>
+        <p>Mangrove restoration and carbon sequestration for long-term climate impact.</p>
+        <div class="card-actions">
+          <a href="https://www.oceanpick.com/sustainability/" class="view-details-link">view more details</a>
+          <a href="https://www.oceanpick.com/contact-us/" class="btn-tertiary">
+            Collaborate
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="media/4.jpeg" alt="Placeholder">
+        <h3>Women & Children Wellbeing</h3>
+        <p>Supporting inclusive development programs that strengthen vulnerable communities.</p>
+        <div class="card-actions">
+          <a href="https://www.oceanpick.com/sustainability/" class="view-details-link">view more details</a>
+          <a href="https://www.oceanpick.com/contact-us/" class="btn-tertiary">
+            Collaborate
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- IMPACT -->
+<section class="section metrics" id="impact">
+  <div class="container">
+    <h2>Our Impact</h2>
+
+    <div class="grid grid-4">
+
+      <div class="metric-box">
+        <h3>900+</h3>
+        <p>Participants in CSR initiatives</p>
+      </div>
+
+      <div class="metric-box">
+        <h3>300+ kg</h3>
+        <p>Plastics Removed</p>
+      </div>
+
+      <div class="metric-box">
+        <h3>6 ha</h3>
+        <p>Mangrove Restored</p>
+      </div>
+
+      <div class="metric-box">
+        <h3>6,405 tCO₂e</h3>
+        <p>Carbon Sequestered</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.oceanpick.com/contact-us/" class="btn-primary">
+        Start a Collaboration
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="section" id="connect-with-us">
+  <div class="container" style="text-align:center;">
+    <h2>Let’s Create Impact Together</h2>
+    <p style="max-width:700px; margin:auto;">
+      Join us in delivering measurable marine conservation and community impact initiatives.
+    </p>
+    <br><br>
+    <a href="https://www.oceanpick.com/contact-us/" class="btn-primary">
+      Join Us
+    </a>
+    <a href="#" class="btn-secondary">
+      Support Us
+    </a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 Ocean Guardian Foundation | In collaboration with Oceanpick</p>
+</footer>
+
+<script>
+  (function () {
+    const aboutVideo = document.getElementById('about-video-player');
+    if (!aboutVideo) return;
+
+    const playlist = [
+      'media/1220(2)-1.mp4',
+      'media/1220(4)-1.mp4'
+    ];
+    let currentIndex = 0;
+
+    function playCurrentVideo() {
+      aboutVideo.src = playlist[currentIndex];
+      const playAttempt = aboutVideo.play();
+      if (playAttempt && typeof playAttempt.catch === 'function') {
+        playAttempt.catch(function () {});
+      }
+    }
+
+    aboutVideo.addEventListener('ended', function () {
+      currentIndex = (currentIndex + 1) % playlist.length;
+      playCurrentVideo();
+    });
+
+    playCurrentVideo();
+  })();
+</script>
+
+</body>
+</html>
